@@ -27,7 +27,7 @@ class Car
         }
     }
 
-    public function break(): string
+    public function brake(): string
     {
         while ($this->currentSpeed > 0) {
             $this->currentSpeed--;
@@ -113,5 +113,35 @@ class Car
     public function setCurrentSpeed($currentSpeed): void
     {
         $this->currentSpeed = $currentSpeed;
+    }
+}
+
+class Bicycle
+{
+    private string $color;
+    private int $currentSpeed = 0;
+    private int $nbSeats = 1;
+    private int $nbWheels = 2;
+
+    public function __construct(string $color)
+    {
+        $this->color = $color;
+    }
+
+    public function forward(): string
+    {
+        $this->currentSpeed = 15;
+        return 'Go !';
+    }
+
+    public function brake(): string
+    {
+        $sentence = '';
+        while ($this->currentSpeed > 0) {
+            $this->currentSpeed--;
+            $sentence .= 'Brake !!!';
+        }
+        $sentence .= "Im'stopped !";
+        return $sentence;
     }
 }
